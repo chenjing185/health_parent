@@ -9,6 +9,8 @@ import com.itheima.pojo.CheckItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * 检查项服务
  */
@@ -44,5 +46,9 @@ public class CheckItemServiceImpl implements CheckItemService {
     //根据id查询检查项
     public CheckItem findById(Integer id) {
         return checkItemDao.findById(id);
+    }
+    //查询全部
+    public List<CheckItem> findAll() {
+        return checkItemDao.findAll();
     }
 }

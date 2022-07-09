@@ -1,0 +1,5 @@
+# 项目排除路径
+/health_backend/target/
+/health_common/target/
+/health_interface/target/
+/health_service_provider/target/
