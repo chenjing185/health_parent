@@ -60,4 +60,8 @@
         </set>
         where id = #{id}
     </update>
+    <!--查询全部-->
+    <select id="findAll" resultType="com.itheima.pojo.CheckGroup">
+        select * from t_checkgroup
+    </select>
 </mapper>
