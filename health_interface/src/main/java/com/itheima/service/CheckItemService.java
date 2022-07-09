@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface CheckItemService {
 
-    public void add(CheckItem checkItem);
+    void add(CheckItem checkItem);
 
     PageResult pageQuery(Integer currentPage, Integer pageSize, String queryString);
 

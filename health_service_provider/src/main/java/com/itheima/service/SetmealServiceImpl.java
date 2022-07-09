@@ -1,7 +1,11 @@
 package com.itheima.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.itheima.dao.CheckGroupDao;
 import com.itheima.dao.SetmealDao;
+import com.itheima.entity.PageResult;
 import com.itheima.pojo.Setmeal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +30,14 @@ public class SetmealServiceImpl implements SetmealService {
             setSetmealAndCheckGroup(setmeal.getId(),checkgroupIds);
         }
     }
+
+    @Override
+    public PageResult pageQuery(Integer currentPage, Integer pageSize, String queryString) {
+        PageHelper.startPage(currentPage,pageSize);
+        Page<Setmeal> page = setmealDao.selectByCondition(queryString);
+        return new PageResult(page.getTotal(),page.getResult());
+    }
+
     //绑定套餐和检查组的多对多关系
     private void setSetmealAndCheckGroup(Integer id, Integer[] checkgroupIds) {
         for (Integer checkgroupId : checkgroupIds) {

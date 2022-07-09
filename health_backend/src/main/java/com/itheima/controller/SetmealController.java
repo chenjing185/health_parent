@@ -2,6 +2,8 @@ package com.itheima.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.itheima.constant.MessageConstant;
+import com.itheima.entity.PageResult;
+import com.itheima.entity.QueryPageBean;
 import com.itheima.entity.Result;
 import com.itheima.pojo.Setmeal;
 import com.itheima.service.SetmealService;
@@ -56,4 +58,16 @@ public class SetmealController {
         //新增套餐成功
         return new Result(true,MessageConstant.ADD_SETMEAL_SUCCESS);
     }
+    //分页查询
+    @RequestMapping("/findPage")
+    public PageResult findPage(@RequestBody QueryPageBean queryPageBean){
+        return setmealService.pageQuery(
+          queryPageBean.getCurrentPage(),
+          queryPageBean.getPageSize(),
+          queryPageBean.getQueryString()
+        );
+    }
+
+
+
 }
