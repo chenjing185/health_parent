@@ -12,5 +12,8 @@
         <module name="health_interface" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="health_mobile" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
