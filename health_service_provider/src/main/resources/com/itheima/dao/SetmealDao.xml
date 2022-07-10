@@ -26,4 +26,8 @@
             where code = #{value} or name = #{value} or helpCode = #{value}
         </if>
     </select>
+    <!--查询全部-->
+    <select id="findAll" resultType="com.itheima.pojo.Setmeal">
+        select * from t_setmeal
+    </select>
 </mapper>
