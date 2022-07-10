@@ -67,5 +67,22 @@ public class OrderSettingController {
             return new Result(false,MessageConstant.GET_ORDERSETTING_FAIL);
         }
     }
+    /**
+     * 根据指定日期修改可预约人数
+     * @param orderSetting
+     * @return
+     */
+    @RequestMapping("/editNumberByDate")
+    public Result editNumberByDate(@RequestBody OrderSetting orderSetting){
+        try{
+            orderSettingService.editNumberByDate(orderSetting);
+            //预约设置成功
+            return new Result(true,MessageConstant.ORDERSETTING_SUCCESS);
+        }catch (Exception e){
+            e.printStackTrace();
+            //预约设置失败
+            return new Result(false,MessageConstant.ORDERSETTING_FAIL);
+        }
+    }
 
 }
