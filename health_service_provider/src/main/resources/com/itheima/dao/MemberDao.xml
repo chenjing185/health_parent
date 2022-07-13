@@ -2,8 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.itheima.dao.MemberDao" >
+
     <!--根据日期统计会员数，统计指定日期之前的会员数-->
     <select id="findMemberCountBeforeDate" parameterType="string" resultType="int">
         select count(id) from t_member where regTime &lt;= #{value}
+    </select>
+
+    <!--根据日期统计会员数-->
+    <select id="findMemberCountByDate" parameterType="string" resultType="int">
+        select count(id) from t_member where regTime = #{value}
+    </select>
+
+    <!--根据日期统计会员数，统计指定日期之后的会员数-->
+    <select id="findMemberCountAfterDate" parameterType="string" resultType="int">
+        select count(id) from t_member where regTime >= #{value}
+    </select>
+
+    <!--总会员数-->
+    <select id="findMemberTotalCount" resultType="int">
+        select count(id) from t_member
     </select>
 </mapper>
