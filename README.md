@@ -6,7 +6,7 @@
 ![检查项管理](https://s3.bmp.ovh/imgs/2022/07/13/f12247ba8e057ec9.png)
 **微信端**
 ![微信端首页](https://s3.bmp.ovh/imgs/2022/07/13/14408884f372f480.png)
-##　技术栈
+## 技术栈
 * 七牛云(存储服务)
 * MyBatis 
 * MySQL 
